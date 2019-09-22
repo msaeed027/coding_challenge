@@ -13,6 +13,9 @@ class Combination:
         :param lists: list of lists
         :return: Cartesian product of inputted lists (all possible combination between inputted lists)
         """
+        if not lists:
+            return []
+
         return [combined_values for combined_values in product(*lists)]
 
     @staticmethod
@@ -23,6 +26,9 @@ class Combination:
         :param lists: list of lists
         :return: Cartesian product of inputted lists (all possible combination between inputted lists)
         """
+        if not lists:
+            return []
+
         result = [[]]
         for pool in lists:
             result = [x+[y] for x in result for y in pool]
