@@ -58,9 +58,8 @@ class Combination:
             nonlocal res
             res += [_list]
 
-        def on_error():
-            nonlocal res
-            res = []
+        def on_error(e):
+            raise e
 
         observable.subscribe(on_next=on_next, on_error=on_error)
 
