@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "18edba9c-741b-4153-84e3-b131bfea3bb2",
+		"name": "coding_challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Combine endpoint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t[1, 2, 3],\n\t[\"a\", \"b\"]\n]"
+				},
+				"url": {
+					"raw": "http://localhost/api/combine",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"combine"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Combine endpoint - custom_combine",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t[1, 2, 3],\n\t[\"a\", \"b\"]\n]"
+						},
+						"url": {
+							"raw": "http://localhost/api/combine?combination_type=custom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"combine"
+							],
+							"query": [
+								{
+									"key": "combination_type",
+									"value": "custom"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.10"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Sep 2019 18:28:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[[1, \"a\"], [1, \"b\"], [2, \"a\"], [2, \"b\"], [3, \"a\"], [3, \"b\"]]"
+				},
+				{
+					"name": "Combine endpoint - rx_combine",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t[1, 2, 3],\n\t[\"a\", \"b\"]\n]"
+						},
+						"url": {
+							"raw": "http://localhost/api/combine?combination_type=rx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"combine"
+							],
+							"query": [
+								{
+									"key": "combination_type",
+									"value": "rx"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.10"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Sep 2019 18:29:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[[1, \"a\"], [1, \"b\"], [2, \"a\"], [2, \"b\"], [3, \"a\"], [3, \"b\"]]"
+				},
+				{
+					"name": "Combine endpoint - py_combine",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t[1, 2, 3],\n\t[\"a\", \"b\"]\n]"
+						},
+						"url": {
+							"raw": "http://localhost/api/combine?combination_type=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"combine"
+							],
+							"query": [
+								{
+									"key": "combination_type",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.10"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Sep 2019 18:28:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[[1, \"a\"], [1, \"b\"], [2, \"a\"], [2, \"b\"], [3, \"a\"], [3, \"b\"]]"
+				}
+			]
+		}
+	]
+}

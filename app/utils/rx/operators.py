@@ -2,7 +2,17 @@ from rx import pipe, from_list, empty, operators as ops
 
 
 def cartesian_product():
+    """
+    this method take stream of list (--[a,b]--[1,2]-->)
+    convert each list to a stream (--a--b--> --1--2-->)
+    convert output to a stream contain one list of streams (--[--a--b--> , --1--2-->]-->)
+    convert output to a cartesian product stream (--[a,1]--[a,2]--[b,1]--[b,2]-->)
+    """
     def cartesian(sources):
+        """
+        this method take list of streams (--[--a--b--> , --1--2-->]-->)
+        convert output to a cartesian product stream (--[a,1]--[a,2]--[b,1]--[b,2]-->)
+        """
         if len(sources) == 0:
             return empty()
 

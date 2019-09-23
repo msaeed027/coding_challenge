@@ -1,7 +1,7 @@
 from flask import Blueprint, request, make_response, jsonify
 import json
 from ..services.combination import Combination
-from ..infrastructure.json_validator import validate_json
+from ..utils.json_validator import validate_json
 
 api = Blueprint('api', __name__)
 

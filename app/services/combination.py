@@ -1,6 +1,6 @@
 from itertools import product
 from rx import Observable, from_list
-from .rx.operators import cartesian_product
+from app.utils.rx.operators import cartesian_product
 
 
 class Combination:
