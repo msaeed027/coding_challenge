@@ -1,5 +1,4 @@
 from flask import Blueprint, request, make_response, jsonify
-import json
 from ..services.combination import Combination
 from ..utils.json_validator import validate_json
 
