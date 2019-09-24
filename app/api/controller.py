@@ -35,4 +35,4 @@ def combine():
     if not res:  # built-in python method
         res = Combination.py_combine(lists)
 
-    return json.dumps(res)
+    return jsonify(res)
