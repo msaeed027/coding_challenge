@@ -1,5 +1,6 @@
 from app.services.combination import Combination
-from rx import from_list
+from rx import from_list, create
+import pytest
 
 lists1 = []
 expected_output1 = []
@@ -66,7 +67,12 @@ def test_rx_combine():
     output4 = Combination.rx_combine(lists4)
     assert output4 == expected_output4
 
+
 def test_observable_to_list():
     _list = [1, 2, 3]
     stream = from_list(_list)
-    assert  _list == Combination.observable_to_list(stream)
+    assert _list == Combination.observable_to_list(stream)
+
+    with pytest.raises(Exception):
+        stream = create(lambda observer, scheduler: observer.on_error(Exception))
+        Combination.observable_to_list(stream)

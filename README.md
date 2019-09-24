@@ -74,20 +74,20 @@ the expected result (Cartesian product)
 So the time complexity for the previous example will be the `len(list[0]) * len(list[1])` 
 which in previous case will be `2 * 3 = 6`
 
-> Because there's an assumption that we will have request with list of unlimited number of lists and each of these lists also contain unlimited number of items. lets define `n = len(list)` and `m = len(of the longest list)` out time complexity will be **O(m<sup>n</sup>)**  
+> Because there's an assumption that we will have request with list of unlimited number of lists and each of these lists also contain unlimited number of items. lets define `n = len(list)` and `m = len(of the longest sub list)` the time complexity will be **O(m<sup>n</sup>)**
 
-So the time complexity for this problem will be **O(m<sup>n</sup>)** where `n = len(list)` and `m = len(of the longest list)` which is very bad time complexity but as per my knowledge until now I did't find any proper optimization
+So the time complexity for this problem will be **O(m<sup>n</sup>)** where `n = len(list)` and `m = len(of the longest sub list)` which is very bad time complexity but as per my knowledge until now I did't find any proper optimization for this problem.
 
-> Also if we have four lists we can solve them two by two then combine the result from each solve to get the final result (so each solve is mutually exclusive)
+> Also if we have four sub lists we can solve them two by two then combine the result from each solve to get the final result (so each solve is mutually exclusive) this lead us to other ways to improve the performance.
 
 ### Ways to improve the performance (Beyond the scope)
 - Using map reduce to map our tasks to small problem and solve them on different machine then reduce them to a single result.
-- Using threads so we can split our tasks to small problem and solve them on different machine then reduce them to a single result.
+- Using threads so we can split our tasks to small problem and solve them on different threads then reduce them to a single result.
 
 ## Provided solution
 Because in the task email you mentioned "*We expect you to create your own combination algorithm.*" I created 3 different method to solve this problem
 
-Please note that the following method has different performance and they are ordered by the most performant come first and so on
+Please note that these methods have different performance and they are ordered by their performance from the best to the worse.
 
 ### 1. py_combine
 this method depends on python built-in method [itertools.product](https://docs.python.org/3/library/itertools.html#itertools.product)
@@ -96,15 +96,16 @@ this method depends on python built-in method [itertools.product](https://docs.p
 this is a custom implementation for Cartesian product which based on we can solve them two by two.
 #### More explanation
 1. Take the first two list then solve them and get the result
-2. Take the result from the previous operation and solve it with the third list and get the result
-3. repeat step 2 until there's no more items in the list
+2. Take the result and solve it with the third list and get the result
+3. repeat step 2 until there's no more lists
+4. return the result
 
 ### 3. rx_combine
 this method is based on reactivex (RxPY) and the custom combine idea
 
 I created an RxPY custom `cartesian_product` operator and used this operator to convert stream of lists to stream of all possible combination between these lists.
 
-but what bother me a lot after using reactivex at this point that i faced a problem that i should convert the output stream to list to return a valid HTTP response and I have created a method to do so `observable_to_list` but i feel this a bad use for Reactive programming or it's not a good fit this context but i left it as it
+but what bother me a lot after using reactivex at this point that i faced a problem that i should convert the output stream to list to return a valid HTTP response and I have created a method to do so `observable_to_list` but i feel this a bad use for Reactive programming or it's not a good fit for this context but i left it as it
 
 ## Endpoints
 ### Combination

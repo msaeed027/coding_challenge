@@ -5,10 +5,11 @@ import json
 @pytest.mark.parametrize(
     ('combination_type', 'request_payload', 'expected_response'),
     [
+        ('', None, {'error': 'Payload must be a valid json.'}),
         ('', [], {'error': 'Request should contains list of lists (at least one list represents the products).'}),
         ('', [[]], {'error': 'Request should contains list of lists which first list should include at least one product.'}),
 
-        ('', [['a']], [['a']]),
+        ('py', [['a']], [['a']]),
         ('', [['a', 'b']], [['a'], ['b']]),
         ('', [['a', 'b'], [1, 2]], [['a', 1], ['a', 2], ['b', 1], ['b', 2]]),
 
@@ -19,13 +20,13 @@ import json
         ('rx', [['a']], [['a']]),
         ('rx', [['a', 'b']], [['a'], ['b']]),
         ('rx', [['a', 'b'], [1, 2]], [['a', 1], ['a', 2], ['b', 1], ['b', 2]]),
-
     ]
 )
 def test_combine(client, combination_type, request_payload, expected_response):
     query_string = f'?combination_type={combination_type}' if combination_type else ''
     url = f'api/combine{query_string}'
-    response = client.post(url, data=json.dumps(request_payload), headers={'Content-Type': 'application/json'})
+    request_payload = json.dumps(request_payload) if isinstance(request_payload, list) else ''
+    response = client.post(url, data=request_payload, headers={'Content-Type': 'application/json'})
 
     response_data = json.loads(response.data)
 
