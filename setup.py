@@ -7,7 +7,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'flask==1.1.1',
+        'flask==2.3.2',
         'rx==3.0.1',
     ],
     extras_require={
